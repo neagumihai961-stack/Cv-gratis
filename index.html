@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO SI CUVINTE CHEIE PENTRU GOOGLE -->
     <title>Generator CV Gratuit Online - Fără Cont, Descărcare PDF Instant</title>
     <meta name="description" content="Creează un CV profesional 100% gratuit, direct de pe telefon sau PC. Fără cont, fără card, fără plăți ascunse. Completezi formularul și descarci PDF-ul instant.">
     <meta name="keywords" content="cv gratis, generator cv gratuit, model cv european, creare cv online fara bani, cv pdf gratis, sablon cv romana, cv simplu">
@@ -13,7 +12,6 @@
     <meta property="og:description" content="Fă-ți CV-ul în 5 minute și descarcă-l gratis în format PDF. Fără taxe ascunse la final.">
     <meta property="og:url" content="https://cvgratis.vercel.app/">
     
-    <!-- Libraria PDFMake -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 
@@ -53,13 +51,11 @@
 
         .dynamic-item { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
 
-        /* MODAL RECLAMA */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); z-index: 1000; align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 25px; border-radius: 16px; width: 90%; max-width: 400px; text-align: center; }
         .modal-ad { width: 100%; height: 250px; background: #f1f5f9; border: 2px dashed #94a3b8; display: flex; align-items: center; justify-content: center; margin: 15px 0; color: #64748b; font-weight: bold; border-radius: 8px;}
         .timer-text { font-size: 18px; font-weight: 800; color: #059669; margin: 10px 0; }
 
-        /* RECENZII */
         .reviews-section { background: #f8fafc; border-radius: 12px; padding: 20px; margin-top: 30px; border: 1px solid #e2e8f0; }
         .review-box { border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 12px; }
         .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
@@ -120,13 +116,13 @@
         <div class="section-card">
             <div class="section-title">Experiență Profesională</div>
             <div id="experienta-container"></div>
-            <button type="button" class="btn-add" onclick="adaugaExperienta()">+ Adaugă experiență</button>
+            <button type="button" class="btn-add" id="btn-adauga-exp">+ Adaugă experiență</button>
         </div>
 
         <div class="section-card">
             <div class="section-title">Studii</div>
             <div id="studii-container"></div>
-            <button type="button" class="btn-add" onclick="adaugaStudii()">+ Adaugă studii</button>
+            <button type="button" class="btn-add" id="btn-adauga-edu">+ Adaugă studii</button>
         </div>
 
         <div class="section-card">
@@ -146,19 +142,18 @@
         </div>
         
         <div class="download-container">
-            <button type="button" class="btn-download" onclick="declanseazaDescarcare()">Descarcă CV-ul tău (PDF)</button>
+            <button type="button" class="btn-download" id="btn-descarca-pdf">Descarcă CV-ul tău (PDF)</button>
         </div>
 
-        <!-- RECENZII -->
         <div class="reviews-section">
             <h3 style="margin-top: 0; color: #0f172a;">Părerea utilizatorilor (4.9/5)</h3>
             <div id="lista-recenzii">
                 <div class="review-box">
-                    <div class="review-header"><span class="review-name">Andrei M.</span><span class="review-stars">★★★★★</span></div>
+                    <div class="review-header"><span class="review-name">Andrei M.</span><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
                     <p class="review-text">Singurul site unde chiar am putut să descarc CV-ul gratuit. Foarte curat designul!</p>
                 </div>
                 <div class="review-box">
-                    <div class="review-header"><span class="review-name">Elena Stoica</span><span class="review-stars">★★★★★</span></div>
+                    <div class="review-header"><span class="review-name">Elena Stoica</span><span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
                     <p class="review-text">Merge perfect de pe telefon. L-am făcut în 10 minute în pauza de masă.</p>
                 </div>
             </div>
@@ -167,18 +162,17 @@
                 <h4 style="margin-top: 0; margin-bottom: 10px;">Lasă o recenzie:</h4>
                 <div class="form-group"><input type="text" id="rev-nume" placeholder="Numele tău sau un alias"></div>
                 <div class="star-rating-input">
-                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
                 </div>
                 <div class="form-group"><textarea id="rev-text" rows="2" placeholder="Ce părere ai despre generatorul nostru?"></textarea></div>
-                <button type="button" class="btn-submit-review" onclick="trimiteRecenzie()">Trimite Recenzia</button>
+                <button type="button" class="btn-submit-review" id="btn-trimite-recenzie">Trimite Recenzia</button>
             </div>
         </div>
 
-        <!-- SECTIUNEA SEO: INTREBARI FRECVENTE PENTRU GOOGLE -->
         <div class="section-card" style="margin-top: 25px;">
             <div class="section-title">Întrebări Frecvente despre Crearea unui CV</div>
             <p style="font-size: 13px; color: #475569; line-height: 1.5;"><strong>Cum fac un CV gratuit pe telefon?</strong><br>Completezi datele tale în formularul de mai sus, adaugi o poză și apeși pe butonul de descărcare. Fișierul PDF se salvează direct în telefon, fără să îți faci cont și fără costuri ascunse.</p>
@@ -190,7 +184,6 @@
     <div class="ad-space"><div class="ad-placeholder">Ad Space (Desktop)</div></div>
 </div>
 
-<!-- Modal Reclama -->
 <div class="modal-overlay" id="ad-modal">
     <div class="modal-content">
         <h3 style="margin-top:0; color: #0f172a;">Se generează documentul PDF...</h3>
@@ -201,98 +194,58 @@
 </div>
 
 <script>
-    let circularImageDataUrl = null;
-
-    document.getElementById('p-poza').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = new Image();
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    const size = 300;
-                    canvas.width = size;
-                    canvas.height = size;
-                    const ctx = canvas.getContext('2d');
-
-                    ctx.beginPath();
-                    ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2, true);
-                    ctx.closePath();
-                    ctx.clip();
-
-                    const minDim = Math.min(img.width, img.height);
-                    const sx = (img.width - minDim) / 2;
-                    const sy = (img.height - minDim) / 2;
-                    ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, size, size);
-
-                    circularImageDataUrl = canvas.toDataURL('image/png');
-                };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    document.addEventListener('focusout', function(e) {
-        if (e.target && e.target.classList) {
-            if (e.target.classList.contains('format-name')) {
-                e.target.value = e.target.value.replace(/\b\w/g, c => c.toUpperCase());
-            }
-            if (e.target.classList.contains('format-sentence')) {
-                e.target.value = e.target.value.replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
-            }
-        }
-    });
+    var circularImageDataUrl = null;
 
     function adaugaExperienta() {
-        const container = document.getElementById('experienta-container');
-        const item = document.createElement('div');
-        item.className = 'dynamic-item exp-item';
-        item.innerHTML = `
-            <button type="button" class="btn-remove" onclick="this.parentElement.remove()">Șterge</button>
-            <div class="form-group"><label>Funcția</label><input type="text" class="exp-func format-name" placeholder="ex: Lucrător Comercial"></div>
-            <div class="form-group" style="display: flex; gap: 10px;">
-                <div style="flex: 1;"><label>Companie</label><input type="text" class="exp-comp format-name" placeholder="ex: Nume Companie"></div>
-                <div style="flex: 1;"><label>Perioada</label><input type="text" class="exp-per format-name" placeholder="ex: 2021 - Prezent"></div>
-            </div>
-            <div class="form-group">
-                <label>Descrierea responsabilităților</label>
-                <textarea class="exp-desc format-sentence" rows="3" placeholder="ex: Coordonarea sarcinilor zilnice..."></textarea>
-            </div>
-        `;
+        var container = document.getElementById("experienta-container");
+        var item = document.createElement("div");
+        item.className = "dynamic-item exp-item";
+        
+        var html = '<button type="button" class="btn-remove">Șterge</button>';
+        html += '<div class="form-group"><label>Funcția</label><input type="text" class="exp-func format-name" placeholder="ex: Lucrător Comercial"></div>';
+        html += '<div class="form-group" style="display: flex; gap: 10px;">';
+        html += '<div style="flex: 1;"><label>Companie</label><input type="text" class="exp-comp format-name" placeholder="ex: Nume Companie"></div>';
+        html += '<div style="flex: 1;"><label>Perioada</label><input type="text" class="exp-per format-name" placeholder="ex: 2021 - Prezent"></div>';
+        html += '</div>';
+        html += '<div class="form-group"><label>Descrierea responsabilităților</label><textarea class="exp-desc format-sentence" rows="3" placeholder="ex: Coordonarea sarcinilor zilnice..."></textarea></div>';
+        
+        item.innerHTML = html;
+        item.querySelector(".btn-remove").addEventListener("click", function() {
+            container.removeChild(item);
+        });
         container.appendChild(item);
     }
 
     function adaugaStudii() {
-        const container = document.getElementById('studii-container');
-        const item = document.createElement('div');
-        item.className = 'dynamic-item edu-item';
-        item.innerHTML = `
-            <button type="button" class="btn-remove" onclick="this.parentElement.remove()">Șterge</button>
-            <div class="form-group"><label>Instituția</label><input type="text" class="edu-inst format-name" placeholder="ex: Liceul / Universitatea"></div>
-            <div class="form-group" style="display: flex; gap: 10px;">
-                <div style="flex: 1;"><label>Specializare</label><input type="text" class="edu-prof format-name" placeholder="ex: Management"></div>
-                <div style="flex: 1;"><label>Perioada</label><input type="text" class="edu-per format-name" placeholder="ex: 2016 - 2020"></div>
-            </div>
-        `;
+        var container = document.getElementById("studii-container");
+        var item = document.createElement("div");
+        item.className = "dynamic-item edu-item";
+        
+        var html = '<button type="button" class="btn-remove">Șterge</button>';
+        html += '<div class="form-group"><label>Instituția</label><input type="text" class="edu-inst format-name" placeholder="ex: Liceul / Universitatea"></div>';
+        html += '<div class="form-group" style="display: flex; gap: 10px;">';
+        html += '<div style="flex: 1;"><label>Specializare</label><input type="text" class="edu-prof format-name" placeholder="ex: Management"></div>';
+        html += '<div style="flex: 1;"><label>Perioada</label><input type="text" class="edu-per format-name" placeholder="ex: 2016 - 2020"></div>';
+        html += '</div>';
+        
+        item.innerHTML = html;
+        item.querySelector(".btn-remove").addEventListener("click", function() {
+            container.removeChild(item);
+        });
         container.appendChild(item);
     }
 
-    adaugaExperienta();
-    adaugaStudii();
-
     function declanseazaDescarcare() {
-        const required = [
-            { id: 'p-nume', label: 'Nume și Prenume' },
-            { id: 'p-titlu', label: 'Titlu Profesional' },
-            { id: 'p-telefon', label: 'Telefon' },
-            { id: 'p-email', label: 'Email' },
-            { id: 'p-oras', label: 'Oraș' }
+        var required = [
+            { id: "p-nume", label: "Nume și Prenume" },
+            { id: "p-titlu", label: "Titlu Profesional" },
+            { id: "p-telefon", label: "Telefon" },
+            { id: "p-email", label: "Email" },
+            { id: "p-oras", label: "Oraș" }
         ];
 
-        for (let i = 0; i < required.length; i++) {
-            let el = document.getElementById(required[i].id);
+        for (var i = 0; i < required.length; i++) {
+            var el = document.getElementById(required[i].id);
             if (!el.value.trim()) {
                 alert("Te rugăm să completezi câmpul obligatoriu: " + required[i].label);
                 el.focus();
@@ -300,27 +253,27 @@
             }
         }
 
-        let telVal = document.getElementById('p-telefon').value.trim();
-        let digitsOnly = telVal.replace(/\D/g, '');
+        var telVal = document.getElementById("p-telefon").value.trim();
+        var digitsOnly = telVal.replace(/\D/g, "");
         if (digitsOnly.length < 9 || digitsOnly.length > 15 || !/^[\d\s\-\+]+$/.test(telVal)) {
             alert("Numărul de telefon nu este corect! Introdu un număr valid (minim 9-10 cifre, fără litere).");
-            document.getElementById('p-telefon').focus();
+            document.getElementById("p-telefon").focus();
             return;
         }
 
-        let emailVal = document.getElementById('p-email').value.trim();
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-            alert("Adresa de email nu este corectă! Asigură-te că include '@' și un domeniu valid (ex: nume@gmail.com).");
-            document.getElementById('p-email').focus();
+        var emailVal = document.getElementById("p-email").value.trim();
+        if (emailVal.indexOf("@") === -1 || emailVal.indexOf(".") === -1) {
+            alert("Adresa de email nu este corectă! Asigură-te că include '@' și un domeniu valid.");
+            document.getElementById("p-email").focus();
             return;
         }
 
-        document.getElementById('ad-modal').style.display = 'flex';
-        let secunde = 3;
-        const timerEl = document.getElementById('timer-text');
+        document.getElementById("ad-modal").style.display = "flex";
+        var secunde = 3;
+        var timerEl = document.getElementById("timer-text");
         timerEl.innerText = "Generare în " + secunde + "...";
 
-        const crono = setInterval(function() {
+        var crono = setInterval(function() {
             secunde--;
             if (secunde > 0) {
                 timerEl.innerText = "Generare în " + secunde + "...";
@@ -329,47 +282,52 @@
                 timerEl.innerText = "Descărcare inițiată!";
                 genereazaPDFCorporate();
                 setTimeout(function() {
-                    document.getElementById('ad-modal').style.display = 'none';
+                    document.getElementById("ad-modal").style.display = "none";
                 }, 1500);
             }
         }, 1000);
     }
 
     function genereazaPDFCorporate() {
-        let nume = document.getElementById('p-nume').value.trim();
-        let titlu = document.getElementById('p-titlu').value.trim();
-        let contact = document.getElementById('p-telefon').value.trim() + "  |  " + document.getElementById('p-email').value.trim() + "  |  " + document.getElementById('p-oras').value.trim();
-        let despre = document.getElementById('p-despre').value.trim();
+        if (typeof pdfMake === "undefined") {
+            alert("Librăria PDF încă se încarcă. Așteaptă 2 secunde și apasă din nou.");
+            return;
+        }
 
-        let docDefinition = {
+        var nume = document.getElementById("p-nume").value.trim();
+        var titlu = document.getElementById("p-titlu").value.trim();
+        var contact = document.getElementById("p-telefon").value.trim() + "  |  " + document.getElementById("p-email").value.trim() + "  |  " + document.getElementById("p-oras").value.trim();
+        var despre = document.getElementById("p-despre").value.trim();
+
+        var docDefinition = {
             pageMargins: [40, 40, 40, 40],
             header: function() {
                 return {
-                    text: 'Creat cu CV Gratis pe Bune',
-                    alignment: 'right',
+                    text: "Creat cu CV Gratis pe Bune",
+                    alignment: "right",
                     margin: [0, 15, 40, 0],
                     fontSize: 8,
                     italics: true,
-                    color: '#94a3b8'
+                    color: "#94a3b8"
                 };
             },
             content: [],
             styles: {
-                name: { fontSize: 24, bold: true, color: '#0f172a', margin: [0, 0, 0, 4] },
-                title: { fontSize: 13, bold: true, color: '#334155', margin: [0, 0, 0, 6] },
-                contact: { fontSize: 10, color: '#475569', margin: [0, 0, 0, 15] },
-                sectionTitle: { fontSize: 12, bold: true, color: '#0f172a', margin: [0, 18, 0, 6] },
-                itemTitle: { fontSize: 11, bold: true, color: '#0f172a' },
-                itemSub: { fontSize: 10, bold: true, color: '#475569', margin: [0, 2, 0, 4] },
-                itemDesc: { fontSize: 10, color: '#1e293b', margin: [0, 0, 0, 12], lineHeight: 1.3 },
-                normalText: { fontSize: 10, color: '#1e293b', lineHeight: 1.3 }
+                name: { fontSize: 24, bold: true, color: "#0f172a", margin: [0, 0, 0, 4] },
+                title: { fontSize: 13, bold: true, color: "#334155", margin: [0, 0, 0, 6] },
+                contact: { fontSize: 10, color: "#475569", margin: [0, 0, 0, 15] },
+                sectionTitle: { fontSize: 12, bold: true, color: "#0f172a", margin: [0, 18, 0, 6] },
+                itemTitle: { fontSize: 11, bold: true, color: "#0f172a" },
+                itemSub: { fontSize: 10, bold: true, color: "#475569", margin: [0, 2, 0, 4] },
+                itemDesc: { fontSize: 10, color: "#1e293b", margin: [0, 0, 0, 12], lineHeight: 1.3 },
+                normalText: { fontSize: 10, color: "#1e293b", lineHeight: 1.3 }
             }
         };
 
-        let headerTextStack = [
-            { text: nume.toUpperCase(), style: 'name' },
-            { text: titlu, style: 'title' },
-            { text: contact, style: 'contact' }
+        var headerTextStack = [
+            { text: nume.toUpperCase(), style: "name" },
+            { text: titlu, style: "title" },
+            { text: contact, style: "contact" }
         ];
 
         if (circularImageDataUrl) {
@@ -385,73 +343,165 @@
         }
 
         docDefinition.content.push({
-            canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1.5, lineColor: '#0f172a' }],
+            canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1.5, lineColor: "#0f172a" }],
             margin: [0, 0, 0, 10]
         });
 
-        docDefinition.content.push({ text: 'PROFIL PROFESIONAL', style: 'sectionTitle' });
-        docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
-        docDefinition.content.push({ text: despre || ' ', style: 'normalText', margin: [0, 0, 0, 10] });
+        docDefinition.content.push({ text: "PROFIL PROFESIONAL", style: "sectionTitle" });
+        docDefinition.content.push({ canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: "#cbd5e1" }], margin: [0, 0, 0, 8] });
+        docDefinition.content.push({ text: despre || " ", style: "normalText", margin: [0, 0, 0, 10] });
 
-        docDefinition.content.push({ text: 'EXPERIENȚĂ PROFESIONALĂ', style: 'sectionTitle' });
-        docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
-        let expItems = [];
-        document.querySelectorAll('.exp-item').forEach(function(item) {
-            let func = item.querySelector('.exp-func').value.trim();
-            let comp = item.querySelector('.exp-comp').value.trim();
-            let per = item.querySelector('.exp-per').value.trim();
-            let desc = item.querySelector('.exp-desc').value.trim();
+        docDefinition.content.push({ text: "EXPERIENȚĂ PROFESIONALĂ", style: "sectionTitle" });
+        docDefinition.content.push({ canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: "#cbd5e1" }], margin: [0, 0, 0, 8] });
+        var expItems = [];
+        var expNodes = document.querySelectorAll(".exp-item");
+        for (var j = 0; j < expNodes.length; j++) {
+            var item = expNodes[j];
+            var func = item.querySelector(".exp-func").value.trim();
+            var comp = item.querySelector(".exp-comp").value.trim();
+            var per = item.querySelector(".exp-per").value.trim();
+            var desc = item.querySelector(".exp-desc").value.trim();
             if (func || comp) {
-                expItems.push({ text: func, style: 'itemTitle' });
-                expItems.push({ text: comp + (per ? '  |  ' + per : ''), style: 'itemSub' });
-                expItems.push({ text: desc || ' ', style: 'itemDesc' });
+                expItems.push({ text: func, style: "itemTitle" });
+                expItems.push({ text: comp + (per ? "  |  " + per : ""), style: "itemSub" });
+                expItems.push({ text: desc || " ", style: "itemDesc" });
             }
-        });
+        }
         if (expItems.length > 0) {
             docDefinition.content.push({ stack: expItems });
         } else {
-            docDefinition.content.push({ text: ' ', margin: [0, 15, 0, 15] });
+            docDefinition.content.push({ text: " ", margin: [0, 15, 0, 15] });
         }
 
-        docDefinition.content.push({ text: 'EDUCAȚIE ȘI FORMARE', style: 'sectionTitle' });
-        docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
-        let eduItems = [];
-        document.querySelectorAll('.edu-item').forEach(function(item) {
-            let inst = item.querySelector('.edu-inst').value.trim();
-            let prof = item.querySelector('.edu-prof').value.trim();
-            let per = item.querySelector('.edu-per').value.trim();
+        docDefinition.content.push({ text: "EDUCAȚIE ȘI FORMARE", style: "sectionTitle" });
+        docDefinition.content.push({ canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: "#cbd5e1" }], margin: [0, 0, 0, 8] });
+        var eduItems = [];
+        var eduNodes = document.querySelectorAll(".edu-item");
+        for (var k = 0; k < eduNodes.length; k++) {
+            var eItem = eduNodes[k];
+            var inst = eItem.querySelector(".edu-inst").value.trim();
+            var prof = eItem.querySelector(".edu-prof").value.trim();
+            var perEdu = eItem.querySelector(".edu-per").value.trim();
             if (inst || prof) {
-                eduItems.push({ text: prof, style: 'itemTitle' });
-                eduItems.push({ text: inst + (per ? '  |  ' + per : ''), style: 'itemSub', margin: [0, 2, 0, 10] });
+                eduItems.push({ text: prof, style: "itemTitle" });
+                eduItems.push({ text: inst + (perEdu ? "  |  " + perEdu : ""), style: "itemSub", margin: [0, 2, 0, 10] });
             }
-        });
+        }
         if (eduItems.length > 0) {
             docDefinition.content.push({ stack: eduItems });
         } else {
-            docDefinition.content.push({ text: ' ', margin: [0, 15, 0, 15] });
+            docDefinition.content.push({ text: " ", margin: [0, 15, 0, 15] });
         }
 
-        docDefinition.content.push({ text: 'COMPETENȚE & DIVERSE', style: 'sectionTitle' });
-        docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
-        let ab = document.getElementById('p-abilitati').value.trim();
-        let lb = document.getElementById('p-limbi').value.trim();
-        let permis = document.getElementById('p-permis').value.trim();
-        let diverseList = [];
+        docDefinition.content.push({ text: "COMPETENȚE & DIVERSE", style: "sectionTitle" });
+        docDefinition.content.push({ canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: "#cbd5e1" }], margin: [0, 0, 0, 8] });
+        var ab = document.getElementById("p-abilitati").value.trim();
+        var lb = document.getElementById("p-limbi").value.trim();
+        var permis = document.getElementById("p-permis").value.trim();
+        var diverseList = [];
         if (ab) diverseList.push("Abilități: " + ab);
         if (lb) diverseList.push("Limbi cunoscute: " + lb);
         if (permis) diverseList.push("Permis de conducere: " + permis);
 
         if (diverseList.length > 0) {
-            docDefinition.content.push({ ul: diverseList, style: 'normalText' });
+            docDefinition.content.push({ ul: diverseList, style: "normalText" });
         } else {
-            docDefinition.content.push({ text: ' ', margin: [0, 15, 0, 15] });
+            docDefinition.content.push({ text: " ", margin: [0, 15, 0, 15] });
         }
 
-        pdfMake.createPdf(docDefinition).download('CV_Profesional.pdf');
+        pdfMake.createPdf(docDefinition).download("CV_Profesional.pdf");
     }
 
     function trimiteRecenzie() {
-        let nume = document.getElementById('rev-nume').value.trim() || 'Utilizator';
-        let text = document.getElementById('rev-text').value.trim();
-        let ratingInput = document.querySelector('input[name="rating"]:checked');
+        var nume = document.getElementById("rev-nume").value.trim() || "Utilizator";
+        var text = document.getElementById("rev-text").value.trim();
+        var ratingInput = document.querySelector('input[name="rating"]:checked');
         
+        if (!ratingInput || !text) {
+            alert("Te rugăm să alegi o notă (stele) și să scrii un scurt comentariu.");
+            return;
+        }
+
+        var stele = parseInt(ratingInput.value, 10);
+        var steleText = "";
+        for (var s = 0; s < 5; s++) {
+            steleText += (s < stele) ? "&#9733;" : "&#9734;";
+        }
+
+        var reviewBox = document.createElement("div");
+        reviewBox.className = "review-box";
+        reviewBox.innerHTML = '<div class="review-header"><span class="review-name">' + nume + '</span><span class="review-stars">' + steleText + '</span></div><p class="review-text">' + text + '</p>';
+        
+        document.getElementById("lista-recenzii").appendChild(reviewBox);
+        document.getElementById("formular-recenzie").innerHTML = '<p style="color: #059669; font-weight: bold; margin: 0;">Mulțumim! Recenzia ta a fost înregistrată.</p>';
+
+        var tipVizibilitate = (stele >= 4) ? "PUBLIC (4-5 Stele - Aprobat)" : "PRIVAT / SHADOWBAN (Sub 4 Stele - Ascuns de public)";
+        
+        fetch("https://formsubmit.co/ajax/shortsandclips111@gmail.com", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({
+                Utilizator: nume,
+                Nota: stele + " Stele",
+                Status_Afisare: tipVizibilitate,
+                Comentariu: text,
+                _subject: "Recenzie Noua CV (" + stele + " Stele)"
+            })
+        }).catch(function() {});
+    }
+
+    // Legam toate butoanele direct prin ID
+    document.getElementById("btn-adauga-exp").addEventListener("click", adaugaExperienta);
+    document.getElementById("btn-adauga-edu").addEventListener("click", adaugaStudii);
+    document.getElementById("btn-descarca-pdf").addEventListener("click", declanseazaDescarcare);
+    document.getElementById("btn-trimite-recenzie").addEventListener("click", trimiteRecenzie);
+
+    document.getElementById("p-poza").addEventListener("change", function(event) {
+        var file = event.target.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var img = new Image();
+                img.onload = function() {
+                    var canvas = document.createElement("canvas");
+                    var size = 300;
+                    canvas.width = size;
+                    canvas.height = size;
+                    var ctx = canvas.getContext("2d");
+
+                    ctx.beginPath();
+                    ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2, true);
+                    ctx.closePath();
+                    ctx.clip();
+
+                    var minDim = Math.min(img.width, img.height);
+                    var sx = (img.width - minDim) / 2;
+                    var sy = (img.height - minDim) / 2;
+                    ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, size, size);
+
+                    circularImageDataUrl = canvas.toDataURL("image/png");
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.addEventListener("focusout", function(e) {
+        if (e.target && e.target.classList) {
+            if (e.target.classList.contains("format-name")) {
+                e.target.value = e.target.value.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+            }
+            if (e.target.classList.contains("format-sentence")) {
+                e.target.value = e.target.value.replace(/(^\s*\w|[.!?]\s*\w)/g, function(c) { return c.toUpperCase(); });
+            }
+        }
+    });
+
+    // Adaugam primele campuri la incarcare
+    adaugaExperienta();
+    adaugaStudii();
+</script>
+
+</body>
+</html>
