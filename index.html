@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Gratis pe Bune</title>
     
-    <!-- Libraria PDFMake (Singura care genereaza PDF nativ pe mobil fara pagina alba) -->
+    <!-- SEO SI CUVINTE CHEIE PENTRU GOOGLE -->
+    <title>Generator CV Gratuit Online - Fără Cont, Descărcare PDF Instant</title>
+    <meta name="description" content="Creează un CV profesional 100% gratuit, direct de pe telefon sau PC. Fără cont, fără card, fără plăți ascunse. Completezi formularul și descarci PDF-ul instant.">
+    <meta name="keywords" content="cv gratis, generator cv gratuit, model cv european, creare cv online fara bani, cv pdf gratis, sablon cv romana, cv simplu">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="CV Gratis pe Bune - Generator CV Fără Cont">
+    <meta property="og:description" content="Fă-ți CV-ul în 5 minute și descarcă-l gratis în format PDF. Fără taxe ascunse la final.">
+    <meta property="og:url" content="https://cvgratis.vercel.app/">
+    
+    <!-- Libraria PDFMake -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 
@@ -169,6 +177,14 @@
                 <button type="button" class="btn-submit-review" onclick="trimiteRecenzie()">Trimite Recenzia</button>
             </div>
         </div>
+
+        <!-- SECTIUNEA SEO: INTREBARI FRECVENTE PENTRU GOOGLE -->
+        <div class="section-card" style="margin-top: 25px;">
+            <div class="section-title">Întrebări Frecvente despre Crearea unui CV</div>
+            <p style="font-size: 13px; color: #475569; line-height: 1.5;"><strong>Cum fac un CV gratuit pe telefon?</strong><br>Completezi datele tale în formularul de mai sus, adaugi o poză și apeși pe butonul de descărcare. Fișierul PDF se salvează direct în telefon, fără să îți faci cont și fără costuri ascunse.</p>
+            <p style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 0;"><strong>Ce trebuie să conțină un CV pentru angajare?</strong><br>Un CV eficient și profesional trebuie să includă datele de contact corecte, experiența profesională ordonată de la cel mai recent loc de muncă, studiile finalizate și abilitățile relevante pentru postul vizat.</p>
+        </div>
+
     </div>
 
     <div class="ad-space"><div class="ad-placeholder">Ad Space (Desktop)</div></div>
@@ -187,7 +203,6 @@
 <script>
     let circularImageDataUrl = null;
 
-    // DECUPARE AUTOMATA A POZEI IN CERC PERFECT PENTRU PDF
     document.getElementById('p-poza').addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
@@ -219,7 +234,6 @@
         }
     });
 
-    // Auto-majuscule
     document.addEventListener('focusout', function(e) {
         if (e.target && e.target.classList) {
             if (e.target.classList.contains('format-name')) {
@@ -327,7 +341,6 @@
         let contact = document.getElementById('p-telefon').value.trim() + "  |  " + document.getElementById('p-email').value.trim() + "  |  " + document.getElementById('p-oras').value.trim();
         let despre = document.getElementById('p-despre').value.trim();
 
-        // CULORI CORPORATE PROFESIONALE PENTRU PDF (Negru-Carbune, Bleumarin inchis, Gri)
         let docDefinition = {
             pageMargins: [40, 40, 40, 40],
             header: function() {
@@ -371,18 +384,15 @@
             docDefinition.content.push({ stack: headerTextStack });
         }
 
-        // Linie eleganta gri-inchis sub antet
         docDefinition.content.push({
             canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1.5, lineColor: '#0f172a' }],
             margin: [0, 0, 0, 10]
         });
 
-        // Sectiunea Despre Mine
         docDefinition.content.push({ text: 'PROFIL PROFESIONAL', style: 'sectionTitle' });
         docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
         docDefinition.content.push({ text: despre || ' ', style: 'normalText', margin: [0, 0, 0, 10] });
 
-        // Sectiunea Experienta
         docDefinition.content.push({ text: 'EXPERIENȚĂ PROFESIONALĂ', style: 'sectionTitle' });
         docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
         let expItems = [];
@@ -403,7 +413,6 @@
             docDefinition.content.push({ text: ' ', margin: [0, 15, 0, 15] });
         }
 
-        // Sectiunea Educatie
         docDefinition.content.push({ text: 'EDUCAȚIE ȘI FORMARE', style: 'sectionTitle' });
         docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
         let eduItems = [];
@@ -422,7 +431,6 @@
             docDefinition.content.push({ text: ' ', margin: [0, 15, 0, 15] });
         }
 
-        // Sectiunea Competente
         docDefinition.content.push({ text: 'COMPETENȚE & DIVERSE', style: 'sectionTitle' });
         docDefinition.content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }], margin: [0, 0, 0, 8] });
         let ab = document.getElementById('p-abilitati').value.trim();
@@ -447,41 +455,3 @@
         let text = document.getElementById('rev-text').value.trim();
         let ratingInput = document.querySelector('input[name="rating"]:checked');
         
-        if (!ratingInput || !text) {
-            alert("Te rugăm să alegi o notă (stele) și să scrii un scurt comentariu.");
-            return;
-        }
-
-        let stele = parseInt(ratingInput.value);
-        let steleText = '★'.repeat(stele) + '☆'.repeat(5 - stele);
-
-        let reviewHTML = `
-            <div class="review-box">
-                <div class="review-header"><span class="review-name">${nume}</span><span class="review-stars">${steleText}</span></div>
-                <p class="review-text">${text}</p>
-            </div>
-        `;
-        
-        // Afisam comentariul pe ecranul lui
-        document.getElementById('lista-recenzii').innerHTML += reviewHTML;
-        document.getElementById('formular-recenzie').innerHTML = '<p style="color: #059669; font-weight: bold; margin: 0;">Mulțumim! Recenzia ta a fost înregistrată.</p>';
-
-        // Trimitem email invizibil catre shortsandclips111@gmail.com
-        let tipVizibilitate = (stele >= 4) ? "PUBLIC (4-5 Stele - Aprobat)" : "PRIVAT / SHADOWBAN (Sub 4 Stele - Ascuns de public)";
-        
-        fetch("https://formsubmit.co/ajax/shortsandclips111@gmail.com", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({
-                Utilizator: nume,
-                Nota: stele + " Stele",
-                Status_Afisare: tipVizibilitate,
-                Comentariu: text,
-                _subject: "Recenzie Noua CV (" + stele + " Stele)"
-            })
-        }).catch(function(e) {});
-    }
-</script>
-
-</body>
-</html>
