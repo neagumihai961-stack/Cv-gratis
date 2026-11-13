@@ -1,2 +1,0 @@
-# Cv-gratis
-Index.html
